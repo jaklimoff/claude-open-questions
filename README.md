@@ -22,6 +22,10 @@ Claude often asks something in the middle of a long reply, then keeps writing. T
 /plugin install open-questions@open-questions
 ```
 
+Needs Claude Code v2.1.293 or later (mods shipped in v2.1.287; `isDeferred` needs v2.1.293). Tested with v2.1.302. Mods can change between releases, so if the box stops drawing after an update, check the [mods changelog](https://code.claude.com/docs/en/changelog).
+
+The box shows in the terminal and the Desktop app, not in the VS Code extension or in `claude -p`. Questions live in session state, so `/clear`, `/resume` and `/branch` start an empty list.
+
 The box uses Nerd Font glyphs. Without a Nerd Font in your terminal, the icons show as empty squares.
 
 ## Use
@@ -35,7 +39,7 @@ The box uses Nerd Font glyphs. Without a Nerd Font in your terminal, the icons s
 
 ## How it works
 
-The whole plugin is one file, `hooks/open-questions.tsx`, about 250 lines. It hooks four events:
+The whole plugin is one file, `hooks/open-questions.tsx`, about 250 lines. It is a Claude Code mod: a plugin whose `hooks/hooks.json` lists a module that runs inside Claude Code ([mods docs](https://code.claude.com/docs/en/plugins/mods/overview)). It hooks four events:
 
 | Event | What it does |
 |---|---|
