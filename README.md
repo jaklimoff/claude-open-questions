@@ -2,18 +2,9 @@
 
 A Claude Code plugin that keeps the questions Claude asked you in a box above the prompt, until you answer them.
 
-Claude often asks something in the middle of a long reply, then keeps writing. The question scrolls away under the text that follows, and you answer only what you saw last. With this plugin, every question Claude asks lands in the box. It stays there until you answer it, or until it no longer applies.
+Claude often asks something in the middle of a long reply, then keeps writing. The question scrolls away under the text that follows, and you answer only what you saw last. With this plugin, Claude files each question it asks in a box above the prompt. It stays there until you answer it, or until it no longer applies.
 
-```
-╭──────────────────────────────────────────────────────────────╮
-│   ? 2 open  ●○                                      send 1  │
-│                                                              │
-│  1  Token or nkey?                                           │
-│  ╰─ nkey                                                     │
-│                                                              │
-│  2  Which port?                                              │
-╰──────────────────────────────────────────────────────────────╯
-```
+![The box above the prompt: Claude asked three questions, two get answers, one send, and the third stays open](docs/demo.gif)
 
 ## Install
 
@@ -27,6 +18,8 @@ Or in one step from the shell (v2.1.292+): `claude plugin install open-questions
 Needs Claude Code v2.1.293 or later (mods shipped in v2.1.287; `isDeferred` needs v2.1.293). Tested with v2.1.302. Mods can change between releases, so if the box stops drawing after an update, check the [mods changelog](https://code.claude.com/docs/en/changelog).
 
 Tested in the terminal. Mods don't draw the band above the prompt in the VS Code extension, or anything in `claude -p`. Questions live in session state, so `/clear`, `/resume` and `/branch` start an empty list.
+
+Filing a question is up to the model, which follows the tool's description. In a quick test, Opus 5.5 filed its questions and Sonnet 5.5 wrote them as plain text instead, so check with the model you use.
 
 The box uses Nerd Font glyphs. Without a Nerd Font in your terminal, the icons show as empty squares.
 
