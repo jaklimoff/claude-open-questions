@@ -59,3 +59,7 @@ For development, start Claude Code with `claude --plugin-dir <path to this folde
 ## Build your own
 
 This plugin is small on purpose. Fork it, keep the four hooks, and change what they track: TODOs Claude promised, files it said it would come back to, warnings it gave. Claude Code can write most of it for you. The work is in the tuning afterwards, one edge case at a time.
+
+## License
+
+MIT

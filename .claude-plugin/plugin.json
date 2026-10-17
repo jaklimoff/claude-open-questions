@@ -7,5 +7,6 @@
     "url": "https://jack.direct"
   },
   "repository": "https://github.com/jaklimoff/claude-open-questions",
-  "types": "./types/index.d.ts"
+  "types": "./types/index.d.ts",
+  "license": "MIT"
 }
