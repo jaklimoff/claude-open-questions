@@ -1,0 +1,11 @@
+{
+  "name": "open-questions",
+  "version": "1.0.0",
+  "description": "A box above the Claude Code prompt with the questions Claude asked that you have not answered yet",
+  "author": {
+    "name": "Jack Klimov",
+    "url": "https://jack.direct"
+  },
+  "repository": "https://github.com/jaklimoff/claude-open-questions",
+  "types": "./types/index.d.ts"
+}

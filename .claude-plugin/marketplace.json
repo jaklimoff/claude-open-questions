@@ -1,0 +1,14 @@
+{
+  "name": "open-questions",
+  "owner": {
+    "name": "Jack Klimov"
+  },
+  "plugins": [
+    {
+      "name": "open-questions",
+      "source": "./",
+      "description": "A box above the Claude Code prompt with the questions Claude asked that you have not answered yet"
+    }
+  ],
+  "description": "A box above the Claude Code prompt with the questions Claude asked that you have not answered yet"
+}
