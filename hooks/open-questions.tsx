@@ -12,7 +12,7 @@ const drafts = atom({ plugin: 'open-questions', key: 'questionsDrafts' } as cons
 
 const TOOL = 'mcp__open-questions__questions'
 
-// Nerd Font glyphs, as in the status line.
+// Nerd Font glyphs: without a Nerd Font in the terminal they show as empty squares.
 const ICON = {
   unfolded: '\uf078',
   folded: '\uf054',
@@ -60,6 +60,8 @@ export const register: Register = on => {
     return next(e)
   })
 
+  // No .catch on the gating hooks: if one throws, Claude Code skips it and the call or prompt goes through unchanged,
+  // which is the right failure for a tracker.
   on('tool.call', { tool: TOOL }, async ($, e) => {
     const { ask = [], answered = [] } = e as unknown as Args
     // Reserve the ids in one update, so parallel calls never hand out the same id.
@@ -116,7 +118,8 @@ export const register: Register = on => {
     const els = $.ui.resolve(e)
     const { Box, Button, Text } = els
     const Input = 'Input' in els ? els.Input : undefined
-    // A rounded pill: `color` as the fill, the text dark on it, as the vim mode in the status line.
+    // A rounded pill: `color` as the fill, the text dark on it. `bold` is deprecated since v2.1.299 in favour of
+    // `weight: 'semibold'`; it still works and keeps the floor at v2.1.293.
     const pill = (color: string, label: string | number) => (
       <Text>
         <Text color={color}>{'\ue0b6'}</Text>

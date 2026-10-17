@@ -22,11 +22,17 @@ Claude often asks something in the middle of a long reply, then keeps writing. T
 /plugin install open-questions@open-questions
 ```
 
+Or in one step from the shell (v2.1.292+): `claude plugin install open-questions --marketplace jaklimoff/claude-open-questions`.
+
 Needs Claude Code v2.1.293 or later (mods shipped in v2.1.287; `isDeferred` needs v2.1.293). Tested with v2.1.302. Mods can change between releases, so if the box stops drawing after an update, check the [mods changelog](https://code.claude.com/docs/en/changelog).
 
-The box shows in the terminal and the Desktop app, not in the VS Code extension or in `claude -p`. Questions live in session state, so `/clear`, `/resume` and `/branch` start an empty list.
+Tested in the terminal. Mods don't draw the band above the prompt in the VS Code extension, or anything in `claude -p`. Questions live in session state, so `/clear`, `/resume` and `/branch` start an empty list.
 
 The box uses Nerd Font glyphs. Without a Nerd Font in your terminal, the icons show as empty squares.
+
+## What it can touch
+
+A mod is code that runs inside Claude Code with your permissions, so read it before you install it. This one uses only `$.state` (the list, in memory for the session), `$.tool.register` (the `questions` tool), `$.prompt.submit` (sending your drafted answers) and `$.ui.resolve` / `$.ui.focus` (drawing the box). No files, no processes, no network, no model calls. `claude plugin validate .` prints the same list for any mod.
 
 ## Use
 
@@ -59,6 +65,10 @@ For development, start Claude Code with `claude --plugin-dir <path to this folde
 ## Build your own
 
 This plugin is small on purpose. Fork it, keep the four hooks, and change what they track: TODOs Claude promised, files it said it would come back to, warnings it gave. Claude Code can write most of it for you. The work is in the tuning afterwards, one edge case at a time.
+
+## Contributing
+
+Issues and PRs welcome. Run `claude plugin validate --strict .` and `claude plugin test .` before sending one.
 
 ## License
 

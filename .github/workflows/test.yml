@@ -1,0 +1,17 @@
+name: test
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: '0 6 * * 1' # weekly: catches a Claude Code release that breaks the mod
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm install -g @anthropic-ai/claude-code
+      - run: claude --version
+      - run: claude plugin validate --strict .
+      - run: claude plugin test .
