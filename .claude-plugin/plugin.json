@@ -8,5 +8,6 @@
   },
   "repository": "https://github.com/jaklimoff/claude-open-questions",
   "types": "./types/index.d.ts",
-  "license": "MIT"
+  "license": "MIT",
+  "homepage": "https://jack.direct/blog/the-warning-my-agent-gave-that-i-never-saw"
 }

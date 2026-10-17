@@ -6,6 +6,8 @@ Claude often asks something in the middle of a long reply, then keeps writing. T
 
 ![The box above the prompt: Claude asked three questions, two get answers, one send, and the third stays open](docs/demo.gif)
 
+The story behind it: [The Warning My Agent Gave That I Never Saw](https://jack.direct/blog/the-warning-my-agent-gave-that-i-never-saw).
+
 ## Install
 
 ```
